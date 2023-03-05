@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FatMouse Dictionary</title>
+    <link rel="shortcut icon" href="./images/dictionary.png">
+    <link rel="stylesheet" href="./CSS/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+<body>
+
+    
+    <div class="search_box">
+        <input onkeydown="handleKeyDown(event)"  type="text" name="text" class="input box_child" placeholder="Type your word!"/>
+        <button onclick="takeAndSearch()" class="box_child">Search</button>
+        
+    </div>
+
+    <div class="word_definition">
+        <div class="info_word">
+            <h1 class="vocab"></h1>
+            <p class="form"></p>
+            <h4 class="ipa"></h4>
+
+            <h4 class="us play">US 
+                <i onclick="playUS()" class="fa-solid fa-volume-low"></i>
+            </h4>
+            <h4 class="uk play">UK 
+                <i onclick="playUK()" class="fa-solid fa-volume-low"></i>
+            </h4>
+<link rel="shortcut icon" href="https://emojigraph.org/media/openmoji/birthday-cake_1f382.png">            <h4 class="au play">AU
+                <i onclick="playAU()" class="fa-solid fa-volume-low"></i>
+            </h4>
+
+            <h4 class="defs">
+                <p></p>
+            </h4>
+            <h4 class="syns">Synonyms: <span></span></h4>
+            <h4 class="exs">
+                <p></p>
+            </h4>
+
+        </div>
+    </div>
+</body>
+<script src="./JS/main.js"></script>
+</html>
