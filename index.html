@@ -30,7 +30,7 @@
             <h4 class="uk play">UK 
                 <i onclick="playUK()" class="fa-solid fa-volume-low"></i>
             </h4>
-<link rel="shortcut icon" href="https://emojigraph.org/media/openmoji/birthday-cake_1f382.png">            <h4 class="au play">AU
+            <h4 class="au play">AU
                 <i onclick="playAU()" class="fa-solid fa-volume-low"></i>
             </h4>
 
@@ -41,9 +41,24 @@
             <h4 class="exs">
                 <p></p>
             </h4>
+        </div>
+        <div class="AI_rewriter">
+            <h3 style="background: linear-gradient(270deg, #3f5efb, #fc466b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; padding: 1rem 1rem 1rem 0; font-family: Verdana, Geneva, Tahoma, sans-serif; text-transform: uppercase;">This function is to make your passgae more formal and connected <i style="font-size: 2.5rem;" class="fa-solid fa-quote-right"></i></h3>
+            <textarea style="font-size: 17px" spellcheck="false" class="user_passage" rows="5" placeholder="Enter your passage.." cols="50"></textarea>
+          
+            <input type="text" name="API" class="API_key" placeholder="Enter your API key..">
 
+            <button id="btSubmit"> 
+                Submit
+            </button>
+
+            <div class="text_rewritten">
+                <i style="font-size: 1.5rem; cursor: pointer; position: absolute; top: 1rem; right: 1rem;" class="fa-regular fa-paste"></i>
+                <div></div>
+            </div>
         </div>
     </div>
 </body>
 <script src="./JS/main.js"></script>
+<script src="./JS/AI_Writer.js"></script>
 </html>

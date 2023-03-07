@@ -81,10 +81,13 @@ div.search_box > .box_child {
 
 div.word_definition {
     display: flex;
+    flex-direction: column;
     /* align-items: center; */
     justify-content: center;
+    align-items: center;
     position: relative;
-    height: 37rem;
+    height: max-content;
+    padding-bottom: 2rem;
     background-color: rgba(24, 144, 255, 0.16);
 }
 
@@ -95,6 +98,7 @@ div.word_definition > div.info_word {
     font-family: Roboto, Helvetica, Arial, sans-serif;
     text-align: left;
     padding: 1.75rem 15%;
+    margin-bottom: 2rem;
     /* color: #000; */
     width: 95%;
     height: max-content;
@@ -128,6 +132,107 @@ h4.defs > p, h4.syns > span, p.form, h4.exs > p {
 div.word_definition > div.info_word > h4.play > i {
     color: rgb(34, 34, 55);
     cursor: pointer;
+}
+
+/* phần viết lại đoạn văn bằng AI */
+div.AI_rewriter {
+    line-height: 2rem;
+    /* font-family: Roboto, Helvetica, Arial, sans-serif; */
+    text-align: left;
+    padding: 1.75rem 15%;
+    margin-bottom: 2rem;
+    /* color: #000; */
+    width: 95%;
+    height: max-content;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.user_passage, div.text_rewritten {
+    display: block;
+    width: 80%;
+    margin-bottom: 1.25rem;
+    padding: 10px;
+    /* font-family: 'Courier New', Courier, monospace; */
+    outline: none;
+    background: #FFF;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border: none;
+    border-radius: 10px;
+    transition: all .5s;
+  
+}
+
+button#btSubmit {
+    background: #9bd3eb;
+    color: #000;
+    /* font-family: inherit; */
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0.1rem 0.5rem;
+    font-weight: 700;
+    font-size: 18px;
+    border: 3px solid black;
+    border-radius: 15px;
+    box-shadow: 0.1em 0.1em;
+    margin-bottom: 1.25rem;
+    /* margin-bottom: 1.25rem;
+    color: #090909;
+    padding: 0.2rem 0.5rem;
+    font-size: 12px;
+    border-radius: 0.5em;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    transition: all .3s;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px; */
+  }
+  
+  button#btSubmit:hover {
+        transform: translate(-0.05em, -0.05em);
+        box-shadow: 0.15em 0.15em;
+      /* border: 1px solid white; */
+    }
+    
+    button#btSubmit:active {
+        transform: translate(0.05em, 0.05em);
+  box-shadow: 0.05em 0.05em;
+    /* background-color: rgba(104, 86, 90, 0.52); */
+    /* background: #fff; */
+    /* box-shadow: 4px 4px 12px #719ddb,
+               -4px -4px 12px #ffffff; */
+  }
+
+
+  .API_key {
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    /* background-color: #e8e8e8;s */
+    outline-color: #e8e8e8;
+    margin-right: 1.25rem;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    font-size: medium;
+    font-weight: bold;
+    max-width: 200px;
+   }
+   
+   .API_key:focus {
+    
+    place-content: "Enter your message!";
+   }
+
+
+div.text_rewritten {
+    position: relative;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    height: max-content;
+    width: 100%;
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+i.fa-paste:active {
+    color: blue;
 }
 
 
