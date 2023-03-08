@@ -1,6 +1,6 @@
 var userPassage = document.querySelector('textarea.user_passage');
 var textRewritten = document.querySelector('div.text_rewritten > div')
-console.log(textRewritten)
+//console.log(textRewritten)
 
 var options, stop, url, prompt
 
@@ -13,54 +13,52 @@ const max_tokens = 500;
 
 var apiKey = ''; // Your OpenAI API Key
 sendButton.addEventListener('click', function() {
-  apiKey = document.querySelector('input.API_key').value
-  stop = '';
-  url = `https://api.openai.com/v1/completions`;
-   prompt = [
-    `You are a web chat bot inside of the website: https://example.com`,
-    ``,
-  `If users ask you for code, return any code in code format`,
-  ].join('\n');
+  if(userPassage.value === '') {
+  } else {
+    apiKey = document.querySelector('input.API_key').value
+    stop = '';
+    url = `https://api.openai.com/v1/completions`;
+     prompt = [
+      `You are a web chat bot inside of the website: https://example.com`,
+      ``,
+    `If users ask you for code, return any code in code format`,
+    ].join('\n');
 
-  options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      prompt: [prompt],
-      model,
-      max_tokens,
-      stop,
-    }),
-  };
+    options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        prompt: [prompt],
+        model,
+        max_tokens,
+        stop,
+      }),
+    };
+    
+      const userMessage = 'Rewrite this passage longer and more formal: ' + userPassage.value;
 
-  // function sendMessage() {
-    const userMessage = 'Rewrite this passage longer and more formal: ' + userPassage.value;
-  
-    // Send the user's message to the API
-    options.body = JSON.stringify({
-      prompt: prompt + userMessage,
-      model,
-      max_tokens,
-      stop,
-    });
-  
-    fetch(url, options)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        var aiMessage = data.choices[0].text;
-        aiMessage =  aiMessage.substring(aiMessage.indexOf('\n\n'))
-        // var newStr = aiMessage.substring(index)
-        console.log(aiMessage)
-  
-       
-        textRewritten.innerHTML = '<p>' + aiMessage.slice(1) + '</p>'
-      })
-      .catch((error) => console.log(error),
-      );
+      // Send the user's message to the API
+      options.body = JSON.stringify({
+        prompt: prompt + userMessage,
+        model,
+        max_tokens,
+        stop,
+      });
+
+      fetch(url, options)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          var aiMessage = data.choices[0].text;
+          aiMessage =  aiMessage.substring(aiMessage.indexOf('\n\n'))
+          textRewritten.innerHTML = '<p>' + aiMessage.slice(1) + '</p>'
+        })
+        .catch((error) => console.log(error),
+        );
+  }
 })
 
 
