@@ -1,18 +1,20 @@
 var userPassage = document.querySelector('textarea.user_passage');
 var textRewritten = document.querySelector('div.text_rewritten > div')
-console.log(textRewritten)
 
 var options, stop, url, prompt
 
 
 const sendButton = document.getElementById('btSubmit');
-console.log(sendButton)
+// console.log(sendButton)
 const chatContainer = document.getElementById('chat-container');
 const model = 'text-davinci-003';
 const max_tokens = 500;
 
 var apiKey = ''; // Your OpenAI API Key
 sendButton.addEventListener('click', function() {
+if(userPassage.value === '') {
+
+} else {
   apiKey = document.querySelector('input.API_key').value
   stop = '';
   url = `https://api.openai.com/v1/completions`;
@@ -37,7 +39,7 @@ sendButton.addEventListener('click', function() {
   };
 
   // function sendMessage() {
-    const userMessage = 'Rewrite this passage longer and more formal: ' + userPassage.value;
+    const userMessage = 'Rewrite this passage or this sentence/question longer and more formal: ' + userPassage.value;
   
     // Send the user's message to the API
     options.body = JSON.stringify({
@@ -50,17 +52,30 @@ sendButton.addEventListener('click', function() {
     fetch(url, options)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         var aiMessage = data.choices[0].text;
         aiMessage =  aiMessage.substring(aiMessage.indexOf('\n\n'))
         // var newStr = aiMessage.substring(index)
-        console.log(aiMessage)
+        // console.log(aiMessage)
   
        
-        textRewritten.innerHTML = '<p>' + aiMessage.slice(1) + '</p>'
+        // textRewritten.innerHTML = '<p id = "hieu_ung_danh_chu">' + aiMessage.slice(1) + '</p>'
+
+        document.getElementById("hieu_ung_danh_chu").innerHTML = ""
+        var tocDo = 15;
+        var i = 0;
+        function typeWriter() {
+          if (i < aiMessage.slice(1).length) {
+            document.getElementById("hieu_ung_danh_chu").innerHTML += aiMessage.slice(1).charAt(i);
+            i++;
+            setTimeout(typeWriter, tocDo );
+          }
+        }
+        typeWriter()
       })
       .catch((error) => console.log(error),
       );
+}
 })
 
 
