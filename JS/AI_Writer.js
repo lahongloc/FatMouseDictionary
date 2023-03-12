@@ -1,6 +1,7 @@
 var userPassage = document.querySelector('textarea.user_passage');
 var textRewritten = document.querySelector('div.text_rewritten > div')
 
+
 var options, stop, url, prompt
 
 
@@ -24,19 +25,20 @@ if(userPassage.value === '') {
   `If users ask you for code, return any code in code format`,
   ].join('\n');
 
-  options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      prompt: [prompt],
-      model,
-      max_tokens,
-      stop,
-    }),
-  };
+    options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        prompt: [prompt],
+        model,
+        max_tokens,
+        stop,
+      }),
+    };
+    
 
   // function sendMessage() {
     const userMessage = 'Rewrite this passage or this sentence/question longer and more formal: ' + userPassage.value;
