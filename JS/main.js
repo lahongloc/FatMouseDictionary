@@ -148,7 +148,8 @@ function takeAndSearch() {
                         exStr += '<p>- ' + item + '</p>'
                     })
                     exs.innerHTML = `Examples:${exStr}`
-                }
+                } 
+                else exs.innerHTML = ''
 
 
 

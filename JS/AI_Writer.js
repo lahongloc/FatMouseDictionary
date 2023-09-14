@@ -4,7 +4,6 @@ var textRewritten = document.querySelector('div.text_rewritten > div')
 
 var options, stop, url, prompt
 
-
 const sendButton = document.getElementById('btSubmit');
 // console.log(sendButton)
 const chatContainer = document.getElementById('chat-container');
